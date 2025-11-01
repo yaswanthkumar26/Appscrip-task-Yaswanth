@@ -1,10 +1,32 @@
-.container {
-  padding: 2rem;
+/* src/app/page.module.css */
+
+/* This style is for the "DISCOVER OUR PRODUCTS" title */
+.headerTitle {
+  text-align: center;
+  padding: 40px 24px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* This creates the 2-column layout */
-.mainContent {
-  display: grid;
-  grid-template-columns: 250px 1fr; /* 250px for sidebar, the rest for the grid */
-  gap: 2rem;
+.headerTitle h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.headerTitle p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+@media (max-width: 480px) {
+  .headerTitle {
+    padding: 24px 16px;
+  }
+  .headerTitle h1 {
+    font-size: 24px;
+  }
+  .headerTitle p {
+    font-size: 14px;
+  }
 }

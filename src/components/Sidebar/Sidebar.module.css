@@ -1,0 +1,50 @@
+/* src/components/Sidebar/Sidebar.module.css */
+.sidebar {
+  padding-right: 24px;
+}
+
+.filterSection {
+  border-bottom: 1px solid #EAEAEA;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.sectionTitleButton {
+  background: none;
+  border: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.icon {
+  font-size: 24px;
+  font-weight: 300;
+  color: #888;
+}
+
+.optionsContainer {
+  padding-left: 8px;
+}
+
+.option {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 12px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.option:hover {
+  font-weight: 500;
+}

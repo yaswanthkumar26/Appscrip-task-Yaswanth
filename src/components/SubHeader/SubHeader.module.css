@@ -1,0 +1,36 @@
+/* src/components/SubHeader/SubHeader.module.css */
+.subHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.filterToggle {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.sortDropdown {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .filterToggle, .sortDropdown {
+    font-size: 12px; /* Smaller text on mobile */
+  }
+  
+  .subHeader {
+    margin-bottom: 16px;
+  }
+}

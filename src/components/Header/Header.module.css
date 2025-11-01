@@ -1,0 +1,88 @@
+/* src/components/Header/Header.module.css */
+.header {
+  padding: 20px 0;
+  border-bottom: 1px solid #EAEAEA;
+  background-color: #FFFFFF;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.logo a {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  /* Match the logo's "width" to help center the nav */
+  min-width: 120px; 
+  justify-content: flex-end;
+}
+
+.hamburger {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* --- MOBILE STYLES --- */
+@media (max-width: 768px) {
+  .nav {
+    display: none; /* Hide main nav links */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger menu */
+  }
+  
+  .container {
+    justify-content: space-between;
+  }
+
+  .logo {
+    /* Center the logo by letting hamburger/actions take up equal space */
+    flex: 1;
+    text-align: center;
+  }
+  
+  .actions {
+    min-width: auto;
+    flex: 1;
+  }
+  
+  .hamburger {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+}

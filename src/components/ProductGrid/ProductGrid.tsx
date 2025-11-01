@@ -1,21 +1,22 @@
 // src/components/ProductGrid/ProductGrid.tsx
 import React from 'react';
 import styles from './ProductGrid.module.css';
-import { Product } from '@/types'; // Import our Product type
-import ProductCard from '../ProductCard/ProductCard'; // Import the card
+import { Product } from '@/types';
+import ProductCard from '../ProductCard/ProductCard';
 
-// 1. Define the props we expect
+// It now accepts 'isFilterVisible'
 interface ProductGridProps {
   products: Product[];
+  isFilterVisible: boolean;
 }
 
-// 2. Use the props in the component
-const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
+const ProductGrid: React.FC<ProductGridProps> = ({ products, isFilterVisible }) => {
   return (
-    <section className={styles.grid}>
-      {/* 3. Map over the products array */}
+    // Conditionally apply the 'gridFullWidth' class
+    <section 
+      className={`${styles.grid} ${!isFilterVisible ? styles.gridFullWidth : ''}`}
+    >
       {products.map((product) => (
-        // 4. Render a ProductCard for each one
         <ProductCard key={product.id} product={product} />
       ))}
     </section>

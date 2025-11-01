@@ -1,0 +1,12 @@
+/* src/components/ProductListing/ProductListing.module.css */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem 24px;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 280px 1fr; /* Default 2-column layout */
+  gap: 2rem;
+}

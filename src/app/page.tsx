@@ -1,46 +1,38 @@
 // src/app/page.tsx
-import Sidebar from "@/components/Sidebar/Sidebar";
-import ProductGrid from "@/components/ProductGrid/ProductGrid";
+// This is our Server Component
+import ProductListing from "@/components/ProductListing/ProductListing";
+import { Product } from "@/types";
 import styles from "./page.module.css";
-import { Product } from "@/types"; // Import the type we just made
 
-// This function fetches the data.
-// In Next.js App Router, this will run on the server.
+// 1. Data fetching remains on the server
 async function getProducts() {
   try {
-    // We add { cache: 'no-store' } to ensure this is always
-    // re-fetched on the server, fulfilling the SSR requirement.
     const res = await fetch('https://fakestoreapi.com/products', { cache: 'no-store' });
-
-    if (!res.ok) {
-      throw new Error('Failed to fetch data');
-    }
-
+    if (!res.ok) throw new Error('Failed to fetch data');
     const products: Product[] = await res.json();
     return products;
-
   } catch (error) {
     console.error(error);
-    return []; // Return an empty array on error
+    return [];
   }
 }
 
-
-// The 'Home' component is now 'async'
+// 2. The Page is a simple async server component
 export default async function Home() {
-  // We call our function and wait for the products
   const products = await getProducts();
 
   return (
-    <div className={styles.container}>
-      {/* Requirement #6c: H1 Tag */}
-      <h1>Products</h1> 
-
-      <div className={styles.mainContent}>
-        <Sidebar />
-        {/* We now pass the 'products' array as a prop */}
-        <ProductGrid products={products} />
+    <div className={styles.pageContainer}>
+      <div className={styles.headerTitle}>
+        <h1>DISCOVER OUR PRODUCTS</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur. Amet est posuere rhoncus 
+          scelerisque. Dolor integer scelerisque nibh amet mi ut elementum dolor.
+        </p>
       </div>
+
+      {/* 3. We pass the server data to the client component */}
+      <ProductListing products={products} />
     </div>
   );
 }
